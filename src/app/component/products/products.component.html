@@ -1,0 +1,43 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+        <a (click)="filter('')">
+            <img src="https://www.shutterstock.com/image-photo/different-food-products-falling-into-600w-1246722904.jpg" alt="">
+            <h6>All products</h6>
+        </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img style="width:42px; margin-top:5px;" src="https://media.istockphoto.com/photos/mobile-devices-picture-id178716575?k=20&m=178716575&s=612x612&w=0&h=Cpbs-ivT4RGz--xBlXFrHhTTPX5kaEcRd4FK4koduWM=" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img style="width:50px; margin-top:5px;" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFzaGlvbnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img src="https://m.media-amazon.com/images/S/aplus-media/vc/bd24f0bb-1f63-44ae-a8fe-42939fd33d1a.__CR0,303,2000,1237_PT0_SX970_V1___.jpg" alt="">
+                <h6>Jewellery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter: searchKey: 'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;max-width:100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;max-width:100ch;">{{item.description}}</p>
+                <p><strong>Price:</strong>${{item.price}}</p>
+                <button class="btn btn-primary"(click)="addtoCart(item)">Add to cart</button>
+            </div>
+        </ng-container>
+       
+    </div>
+</div>
